@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Memory Match</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Memory Match</title>
 
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wrapper">
 
-    </head>
-    <body>
-      <main id="wrapper">
-
-          <!---------------HEADER AREA---------------->
-          <header>
-              <div class="logo">
-                <img src="images/logo.png">
-              </div>
-              <nav>
-                  <ul class="main-nav">
-                      <li><a href="">Settings</a></li>
-                      <li><a href="about.html">About</a></li>
-                  </ul>
-              </nav>
-              <section class="game-title">
-                  <h1>Pooch Memory Match</h1>
-                  <h2 class="victory"></h2>
-              </section>
-          </header>
-
+      <!---------------HEADER AREA---------------->
+      <header>
+          <nav>
+              <a href="about.html">About</a>
+          </nav>
+          <section class="game-title">
+              <h1>Pooch Memory Match</h1>
+          </section>
+      </header>
+      <main>
           <!---------------GAME STATS---------------->
-          <div class="stats-area">
-              <div class="stats-header">
-                  <h2>Stats:</h2>
-              </div>
+          <section class="stats-area">
+              <h2>Stats:</h2>
               <div class="games-played">
                   <h2 class="label">Games Played:</h2>
                   <span class="value"></span>
@@ -50,8 +40,10 @@
                   <span class="value"></span>
               </div>
               <button class="reset">Reset Game</button>
-          </div>
-
+          </section>
+          <section id="win-result">
+            <h2 class="victory"></h2>
+          </section>
           <!---------------GAME AREA---------------->
           <div id="game-area" class="container">
 
@@ -59,162 +51,162 @@
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/SiberianHusky.jpg" alt="dog">
+                      <img src="final_images/siberian-husky.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/AmerEskimo.jpg" alt="dog">
+                      <img src="final_images/amer-eskimo.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/SiberianHusky.jpg" alt="dog">
+                      <img src="final_images/siberian-husky.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <!---------------END OF FIRST THREE CARDS---------------->
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/AmerEskimo.jpg" alt="dog">
+                      <img src="final_images/amer-eskimo.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/Akita.jpg" alt="dog">
+                      <img src="final_images/akita.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/australian_cattle_dog.jpg" alt="dog">
+                      <img src="final_images/australian_cattle_dog.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <!---------------END OF FIRST SIX CARDS---------------->
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/canaan-dog.jpg" alt="dog">
+                      <img src="final_images/canaan-dog.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/german-shepherd-dog.jpg" alt="dog">
+                      <img src="final_images/doberman.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/canaan-dog.jpg" alt="dog">
+                      <img src="final_images/canaan-dog.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <!---------------END OF FIRST NINE CARDS---------------->
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/mutt.jpg" alt="dog">
+                      <img src="final_images/mutt.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/Akita.jpg" alt="dog">
+                      <img src="final_images/akita.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/mutt.jpg" alt="dog">
+                      <img src="final_images/mutt.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <!---------------END OF FIRST TWELVE CARDS---------------->
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/german-shepherd-dog.jpg" alt="dog">
+                      <img src="final_images/doberman.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/toughGuy.jpg" alt="dog">
+                      <img src="final_images/toughguy.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/australian_cattle_dog.jpg" alt="dog">
+                      <img src="final_images/australian_cattle_dog.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <!---------------END OF FIRST FIFTEEN CARDS---------------->
 
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/tongue.jpg" alt="dog">
+                      <img src="final_images/tongue.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/tongue.jpg" alt="dog">
+                      <img src="final_images/tongue.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
               <div class="card col-md-2 col-sm-4 col-xs-6">
                   <div class="front">
-                      <img src="images/toughGuy.jpg" alt="dog">
+                      <img src="final_images/toughguy.jpg" alt="dog">
                   </div>
                   <div class="back">
-                      <img src="images/doberman.jpg" alt="dog">
+                      <img src="final_images/card-back-2.png" alt="dog">
                   </div>
               </div>
 
               <!---------------END OF FIRST EIGHTEEN CARDS---------------->
           </div>
       </main>
-
-    </body>
+  </div>
+</body>
 </html>
