@@ -4,60 +4,66 @@
 BASE STYLES
 *****************/
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
 }
-
-#wrapper {
-    max-width: 1300px;
-    width: 95%;
-    margin: 0 auto;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-
 
 /*************************
 HEADER
 **************************/
 
 header {
-    height: 30vh;
-    width: 100%;
+    background-color: rgb(132,151,62);
     font-family: 'Baloo Bhai', cursive;
+    text-align: center;
+    width: 100%;
+    padding: 25px 0 10px;
+}
+h1 {
+    margin: 0;
+    color: rgb(48,56,17);
 }
 
-h1 {
-    font-size: 2.75em;
-    text-align: center;
+a:link{
+    color: rgb(132,151,62);
 }
+
+a:visited {
+    color: rgb(198,185,104);
+}
+
+a:hover {
+    color: rgb(132,151,62);
+}
+
+a:active {
+    color: rgb(48,56,17);
+}
+
+
+/*******************
+MAIN-CONTENT AREA
+*******************/
+
+#wrapper {
+    width: 1300px;
+    margin: 0 auto;
+}
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 /*******************
 STATS AREA
 *******************/
 .stats-area {
-    width: 15vw;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: 25px;
-    text-align:  left;
-}
-
-.stats-header {
-    margin-bottom: 15px;
-}
-
-.games-played,
-.attempts,
-.accuracy {
-    margin-bottom: 10px;
+    background-color: rgb(255,244,179);
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .victory {
@@ -75,51 +81,39 @@ GAME AREA
 /*******************
 Cards
 *******************/
-
+/*#game-area {*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*max-width: 100vw;*/
+/*}*/
 img {
-    max-width: 100%;
-    height: 100%;
-
+    width: 80%;
+    height: 80%;
 }
 
 .card {
-    display: inline-block;
-    margin-bottom: 25px;
     position: relative;
-
+    display: inline-block;
+    margin: 10% 7%;
 }
 
 .front,
 .back {
-    height: 250px;
-    width: 150px;
+    height: 300px;
+    width: 200px;
 
 }
 
-.back  {
+.back,
+.front {
     position: absolute;
     top: 0;
     left: 0;
 
 }
 
-.front {
-    position: relative;
-    right: 15px;
-}
-
-.shuffle {
-    display: none;
-}
-/*****************************
-Media Queries
-******************************/
-/*
-@media (min-width: 769px) {
-
-}
-
-@media (min-width: 1025px) {
-
-}
-*/
+/*.front {*/
+    /*position: relative;*/
+    /*right: 15px;*/
+/*}*/
