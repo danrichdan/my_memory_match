@@ -13,7 +13,7 @@ HEADER
 **************************/
 
 header {
-    background-color: rgb(132,151,62);
+    background-color: rgb(171,164,87);
     font-family: 'Baloo Bhai', cursive;
     text-align: center;
     width: 100%;
@@ -46,7 +46,7 @@ MAIN-CONTENT AREA
 *******************/
 
 #wrapper {
-    width: 1300px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 section {
@@ -59,61 +59,75 @@ section {
 STATS AREA
 *******************/
 .stats-area {
-    font-family: 'Open Sans', sans-serif;
-    background-color: rgb(255,244,179);
     margin-top: 0;
     padding-top: 10px;
     padding-bottom: 20px;
+    text-align: center;
+}
+
+.stats-area h3 {
+    margin: 5px 0;
+}
+
+.stats-area h2:first-of-type {
+    margin-top: 10px;
 }
 
 .victory {
     text-align: center;
 }
 
+.stats-area,
+footer {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(255, 244, 179);
+}
 
+button {
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1.2em;
+    background-color: rgb(199,228,93);
+    margin-top: 10px;
+}
 
 /*******************
 GAME AREA
 *******************/
-
-
+#game-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 /*******************
 Cards
 *******************/
-/*#game-area {*/
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*max-width: 100vw;*/
-/*}*/
 img {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
 }
 
 .card {
     position: relative;
-    display: inline-block;
-    margin: 10% 7%;
 }
 
 .front,
 .back {
-    height: 300px;
-    width: 200px;
-
+    height: 150px;
+    width: 100px;
 }
 
-.back,
-.front {
+.back {
     position: absolute;
     top: 0;
     left: 0;
-
 }
 
-/*.front {*/
-    /*position: relative;*/
-    /*right: 15px;*/
-/*}*/
+footer {
+    padding: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
