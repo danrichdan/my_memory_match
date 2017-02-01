@@ -164,6 +164,15 @@ footer {
     nav a {
         font-size: 1.4em;
     }
+    div.stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    div.stats div {
+        flex-basis: 25%;
+    }
 }
 
 @media(min-width: 1024px) {
@@ -179,27 +188,47 @@ footer {
         background-color: transparent;
         margin-top: 100px;
     }
+
+
 }
 
 @media(min-width: 1366px) {
-    .front,
-    .back {
-        height: 300px;
-        width: 200px;
-    }
+    /*.front,*/
+    /*.back {*/
+        /*height: 262.5px;*/
+        /*width: 175px;*/
+    /*}*/
     footer {
         position: static;
         background-color: rgb(255, 244, 179);
     }
-    div.stats {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    div.stats div {
-        flex-basis: 20%;
-    }
+    /*div.stats {*/
+        /*display: flex;*/
+        /*flex-direction: row;*/
+        /*justify-content: center;*/
+    /*}*/
+    /*div.stats div {*/
+        /*flex-basis: 20%;*/
+    /*}*/
     button {
         font-size: 1.2em;
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    .stats-area {
+        flex-basis: 25%;
+    }
+    #game-area {
+        flex-basis: 75%;
+    }
+    #win-result {
+        flex-basis: 0;
+    }
+    div.stats {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 }
