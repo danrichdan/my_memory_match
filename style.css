@@ -131,3 +131,75 @@ footer {
     margin-top: 25px;
     text-align: center;
 }
+
+@media(min-width: 412px) {
+    .front,
+    .back {
+        height: 187.5px;
+        width: 125px;
+    }
+}
+
+/*@media(min-width: 567px) {*/
+    /*.front,*/
+    /*.back {*/
+        /*height: 210px;*/
+        /*width: 140px;*/
+    /*}*/
+/*}*/
+
+@media(min-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    button {
+        font-size: 1.3em;
+    }
+    nav a {
+        font-size: 1.4em;
+    }
+}
+
+@media(min-width: 1024px) {
+    .front,
+    .back {
+        height: 225px;
+        width: 150px;
+    }
+    #game-area {
+        margin-top: 50px;
+    }
+    footer {
+        background-color: transparent;
+        margin-top: 100px;
+    }
+}
+
+@media(min-width: 1366px) {
+    .front,
+    .back {
+        height: 300px;
+        width: 200px;
+    }
+    footer {
+        position: static;
+        background-color: rgb(255, 244, 179);
+    }
+    div.stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    div.stats div {
+        flex-basis: 20%;
+    }
+    button {
+        font-size: 1.2em;
+    }
+}
