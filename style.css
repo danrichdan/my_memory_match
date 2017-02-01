@@ -48,6 +48,7 @@ MAIN-CONTENT AREA
 #wrapper {
     max-width: 1300px;
     margin: 0 auto;
+    position: relative;
 }
 section {
     width: 100%;
@@ -63,6 +64,7 @@ STATS AREA
     padding-top: 10px;
     padding-bottom: 20px;
     text-align: center;
+
 }
 
 .stats-area h3 {
@@ -73,9 +75,52 @@ STATS AREA
     margin-top: 10px;
 }
 
-.victory {
+/*#win-result {*/
+    /*position: fixed;*/
+    /*left: 25%;*/
+    /*top: 25%;*/
+    /*width: 50%;*/
+    /*height: 50%;*/
+    /*overflow-y: auto;*/
+    /*!*z-index: 100;*!*/
+    /*!*background-color: #000000;*!*/
+    /*opacity: 0.7;*/
+    /*filter: alpha(opacity=70);*/
+    /*text-align: center;*/
+    /*font-size: 2.5em;*/
+    /*color: purple;*/
+    /*!*background-color: grey;*!*/
+/*}*/
+.win-shout-out {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    overflow-y: auto;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
     text-align: center;
+    color: rgb(199,228,93);
+    font-size: 1.5em;
+    font-family: 'Open Sans', sans-serif;
 }
+
+/*.display-button {*/
+    /*display: block;*/
+/*}*/
+
+/*.win-shout-out h2.victory {*/
+    /*opacity: 1;*/
+    /*font-size: 1.5em;*/
+    /*color: rgb(199,228,93);*/
+/*}*/
 
 .stats-area,
 footer {
@@ -90,6 +135,7 @@ button {
     font-size: 1.2em;
     background-color: rgb(199,228,93);
     margin-top: 10px;
+    z-index: 1000;
 }
 
 /*******************
@@ -223,9 +269,10 @@ footer {
     #game-area {
         flex-basis: 75%;
     }
-    #win-result {
-        flex-basis: 0;
-    }
+    /*#win-result {*/
+        /*flex-basis: 0;*/
+        /*flex-grow: 5;*/
+    /*}*/
     div.stats {
         display: flex;
         flex-direction: column;

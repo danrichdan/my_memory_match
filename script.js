@@ -44,6 +44,7 @@ function reset_stats() {
     attempts = 0;
     first_card_clicked = null;
     second_card_clicked = null;
+    $('div#win-result').removeClass('win-shout-out');
     display_stats();
     $('.back').show();
     assignClickEvent();
@@ -108,7 +109,9 @@ function card_clicked(clickedCard) {
                 console.log('You have won.');
                 display_stats();
                 $('h2.victory').text('You\'ve Won!!!');
-
+                $('div#win-result').addClass('win-shout-out');
+                var $button = $('<button>').text('reset game').addClass('reset');
+                $button.appendTo('div#win-result');
             } else {
                 display_stats();
                 return;
