@@ -112,6 +112,13 @@ function card_clicked(clickedCard) {
                 $('div#win-result').addClass('win-shout-out');
                 var $button = $('<button>').text('reset game').addClass('reset');
                 $button.appendTo('div#win-result');
+                $button.click(function(){
+                    games_played ++;
+                    reset_stats();
+                    $('.accuracy .value').text('Accuracy: ' + ' ');
+                    $('h2.victory').text('');
+                    $button.hide();
+                })
             } else {
                 display_stats();
                 return;
