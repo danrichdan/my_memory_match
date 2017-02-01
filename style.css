@@ -1,0 +1,205 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Baloo+Bhai';
+/****************
+BASE STYLES
+*****************/
+
+body {
+    margin: 0;
+}
+
+/*************************
+HEADER
+**************************/
+
+header {
+    background-color: rgb(171,164,87);
+    font-family: 'Baloo Bhai', cursive;
+    text-align: center;
+    width: 100%;
+    padding: 25px 0 10px;
+}
+h1 {
+    margin: 0;
+    color: rgb(48,56,17);
+}
+
+a:link{
+    color: rgb(132,151,62);
+}
+
+a:visited {
+    color: rgb(198,185,104);
+}
+
+a:hover {
+    color: rgb(132,151,62);
+}
+
+a:active {
+    color: rgb(48,56,17);
+}
+
+
+/*******************
+MAIN-CONTENT AREA
+*******************/
+
+#wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/*******************
+STATS AREA
+*******************/
+.stats-area {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.stats-area h3 {
+    margin: 5px 0;
+}
+
+.stats-area h2:first-of-type {
+    margin-top: 10px;
+}
+
+.victory {
+    text-align: center;
+}
+
+.stats-area,
+footer {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(255, 244, 179);
+}
+
+button {
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-family: 'Baloo Bhai', cursive;
+    font-size: 1.2em;
+    background-color: rgb(199,228,93);
+    margin-top: 10px;
+}
+
+/*******************
+GAME AREA
+*******************/
+#game-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*******************
+Cards
+*******************/
+img {
+    width: 90%;
+    height: 90%;
+}
+
+.card {
+    position: relative;
+}
+
+.front,
+.back {
+    height: 150px;
+    width: 100px;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+footer {
+    padding: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media(min-width: 412px) {
+    .front,
+    .back {
+        height: 187.5px;
+        width: 125px;
+    }
+}
+
+/*@media(min-width: 567px) {*/
+    /*.front,*/
+    /*.back {*/
+        /*height: 210px;*/
+        /*width: 140px;*/
+    /*}*/
+/*}*/
+
+@media(min-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    button {
+        font-size: 1.3em;
+    }
+    nav a {
+        font-size: 1.4em;
+    }
+}
+
+@media(min-width: 1024px) {
+    .front,
+    .back {
+        height: 225px;
+        width: 150px;
+    }
+    #game-area {
+        margin-top: 50px;
+    }
+    footer {
+        background-color: transparent;
+        margin-top: 100px;
+    }
+}
+
+@media(min-width: 1366px) {
+    .front,
+    .back {
+        height: 300px;
+        width: 200px;
+    }
+    footer {
+        position: static;
+        background-color: rgb(255, 244, 179);
+    }
+    div.stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    div.stats div {
+        flex-basis: 20%;
+    }
+    button {
+        font-size: 1.2em;
+    }
+}
