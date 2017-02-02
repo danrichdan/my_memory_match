@@ -24,12 +24,16 @@ h1 {
     color: rgb(48,56,17);
 }
 
+
+/*************************
+PSEUDO ELEMENTS
+**************************/
 a:link{
-    color: rgb(132,151,62);
+    color: rgb(199,228,93);
 }
 
 a:visited {
-    color: rgb(198,185,104);
+    color: rgb(48,56,17);;
 }
 
 a:hover {
@@ -37,7 +41,7 @@ a:hover {
 }
 
 a:active {
-    color: rgb(48,56,17);
+    color: rgb(198,185,104);
 }
 
 
@@ -55,6 +59,10 @@ section {
     margin: 0 auto;
 }
 
+button,
+.card {
+    cursor: pointer;
+}
 
 /*******************
 STATS AREA
@@ -64,7 +72,11 @@ STATS AREA
     padding-top: 10px;
     padding-bottom: 20px;
     text-align: center;
+}
 
+.stats-area,
+.stats-area button {
+    color: rgb(48,56,17);
 }
 
 .stats-area h3 {
@@ -75,22 +87,6 @@ STATS AREA
     margin-top: 10px;
 }
 
-/*#win-result {*/
-    /*position: fixed;*/
-    /*left: 25%;*/
-    /*top: 25%;*/
-    /*width: 50%;*/
-    /*height: 50%;*/
-    /*overflow-y: auto;*/
-    /*!*z-index: 100;*!*/
-    /*!*background-color: #000000;*!*/
-    /*opacity: 0.7;*/
-    /*filter: alpha(opacity=70);*/
-    /*text-align: center;*/
-    /*font-size: 2.5em;*/
-    /*color: purple;*/
-    /*!*background-color: grey;*!*/
-/*}*/
 .win-shout-out {
     display: flex;
     align-items: center;
@@ -112,15 +108,10 @@ STATS AREA
     font-family: 'Open Sans', sans-serif;
 }
 
-/*.display-button {*/
-    /*display: block;*/
-/*}*/
-
-/*.win-shout-out h2.victory {*/
-    /*opacity: 1;*/
-    /*font-size: 1.5em;*/
-    /*color: rgb(199,228,93);*/
-/*}*/
+.win-shout-out,
+button {
+    border-radius: 10px;
+}
 
 .stats-area,
 footer {
@@ -129,13 +120,18 @@ footer {
 }
 
 button {
-    padding: 10px 10px;
+    padding: 10px;
     text-transform: uppercase;
     font-family: 'Baloo Bhai', cursive;
     font-size: 1.2em;
     background-color: rgb(199,228,93);
     margin-top: 10px;
     z-index: 1000;
+}
+
+.win-shout-out button {
+    font-size: .75em;
+    padding: 5px;
 }
 
 /*******************
@@ -146,6 +142,7 @@ GAME AREA
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 40px;
 }
 
 /*******************
@@ -178,6 +175,44 @@ footer {
     text-align: center;
 }
 
+
+/*******************
+ABOUT PAGE
+*******************/
+
+#about-game-area {
+    font-family: 'Open Sans', sans-serif;
+    width: 90%;
+    margin: 50px auto;
+    color: rgb(48,56,17);
+}
+
+#about-game-area p {
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 1.75;
+}
+
+#about-game-area img {
+    height: 300px;
+    width: 200px;
+    margin-bottom: 25px;
+    border: solid 2px rgb(132,151,62);
+    padding: 5px;
+}
+
+#about-game-area h3 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-bottom: solid 2px;
+    padding-bottom: 20px;
+}
+
+
+/*******************
+MEDIA QUERIES
+*******************/
+
 @media(min-width: 412px) {
     .front,
     .back {
@@ -186,30 +221,24 @@ footer {
     }
 }
 
-/*@media(min-width: 567px) {*/
-    /*.front,*/
-    /*.back {*/
-        /*height: 210px;*/
-        /*width: 140px;*/
-    /*}*/
-/*}*/
-
 @media(min-width: 768px) {
     h1 {
         font-size: 2.5em;
     }
+
     h2 {
         font-size: 1.75em;
     }
-    h3 {
-        font-size: 1.3em;
-    }
+
+    h3,
     button {
         font-size: 1.3em;
     }
+
     nav a {
         font-size: 1.4em;
     }
+
     div.stats {
         display: flex;
         flex-direction: row;
@@ -219,6 +248,16 @@ footer {
     div.stats div {
         flex-basis: 25%;
     }
+
+    .flex-section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .left-col,
+    .right-col {
+        flex-grow: 2;
+    }
 }
 
 @media(min-width: 1024px) {
@@ -227,52 +266,41 @@ footer {
         height: 225px;
         width: 150px;
     }
+
     #game-area {
         margin-top: 50px;
     }
+
     footer {
         background-color: transparent;
         margin-top: 100px;
     }
-
-
 }
 
 @media(min-width: 1366px) {
-    /*.front,*/
-    /*.back {*/
-        /*height: 262.5px;*/
-        /*width: 175px;*/
-    /*}*/
+
     footer {
         position: static;
         background-color: rgb(255, 244, 179);
     }
-    /*div.stats {*/
-        /*display: flex;*/
-        /*flex-direction: row;*/
-        /*justify-content: center;*/
-    /*}*/
-    /*div.stats div {*/
-        /*flex-basis: 20%;*/
-    /*}*/
+
     button {
         font-size: 1.2em;
     }
+
     main {
         display: flex;
         flex-direction: row;
     }
+
     .stats-area {
         flex-basis: 25%;
     }
+
     #game-area {
         flex-basis: 75%;
     }
-    /*#win-result {*/
-        /*flex-basis: 0;*/
-        /*flex-grow: 5;*/
-    /*}*/
+
     div.stats {
         display: flex;
         flex-direction: column;

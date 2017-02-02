@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Memory Match</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    </head>
-    <body>
-      <div class="about-page">
-          <header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Memory Match</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 
-          </header>
-          <main>
-              <img src="#">
-              <h2><a href="#">Portfolio</a></h2>
-              <h3>About the Memory Match Game</h3>
-              <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-              </p>
-              <h3>Skills Used to make Memory Match</h3>
-              <ul>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-              </ul>
-          </main>
-      </div>
-    </body>
+</head>
+<body>
+    <div id="wrapper">
+        <!---------------HEADER AREA---------------->
+        <header>
+            <section class="game-title">
+                <h1>Pooch Memory Match</h1>
+            </section>
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+        </header>
+        <main>
+            <!---------------ABOUT GAME AREA---------------->
+            <section id="about-game-area">
+                <div class="top-row">
+                  <h2>About the Pooch Memory Match Game</h2>
+                  <p class="description">Pooch Memory Match is a game in which a player is faced with 18 cards, all with their backs showing.  None of the cards are unique, in fact each one of the faces of the cards have matches.   So really there are only 9 card faces since they each have a match.  The player must click on a card, the card will show its face and the player must click on another card in an effort to match the first card.  If the second card that the player clicked on is a match, then the cards remain showing and the player can try for the next matched pair.  If the second card was not a match, then both cards will flip over and show their backs.  In order to win the game, all cards must be matched.
+                  </p>
+                </div>
+                <div class="flex-section">
+                    <div class="left-col">
+                        <h3>Card Back</h3>
+                        <img src="final_images/card-back-2.png" alt="the back of the cards">
+                    </div>
+                    <div class="right-col">
+                        <h3>Card Front</h3>
+                        <img src="final_images/doberman.jpg" alt="doberman looking mean">
+                    </div>
+                </div>
+                <div class="bottom-row">
+                      <h2>Skills Used to make Memory Match</h2>
+                      <ul>
+                          <li>HTML</li>
+                          <li>CSS</li>
+                          <li>JavaScript</li>
+                          <li>JQuery</li>
+                          <li>Adobe Illustrator</li>
+                          <li>Adobe Photoshop</li>
+                      </ul>
+                </div>
+             </section>
+        </main>
+        <footer>
+            &copy; 2017 Dan Riches
+        </footer>
+    </div>
+</body>
 </html>
