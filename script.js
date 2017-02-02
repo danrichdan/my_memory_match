@@ -44,6 +44,7 @@ function reset_stats() {
     attempts = 0;
     first_card_clicked = null;
     second_card_clicked = null;
+    $('div#win-result').removeClass('win-shout-out');
     display_stats();
     $('.back').show();
     assignClickEvent();
@@ -52,10 +53,10 @@ function reset_stats() {
 
     $(document).on('ready', function () {
         assignClickEvent();
-        console.log('Accuracy ' + accuracy);
-        console.log('Matches ' + matches);
-        console.log('Attempts ' + attempts);
-        console.log('Games played ' + games_played);
+        // console.log('Accuracy ' + accuracy);
+        // console.log('Matches ' + matches);
+        // console.log('Attempts ' + attempts);
+        // console.log('Games played ' + games_played);
         display_stats();
         $('.accuracy .value').text('Accuracy: ' + ' ');
         $('.reset').on('click', function() {
@@ -84,9 +85,9 @@ function card_clicked(clickedCard) {
         //console.log('This is the first card', first_card_clicked);
     } else {
         attempts ++;
-        console.log('Attempts ' + attempts);
-        console.log('matches: ' + matches);
-        console.log('Accuracy ' + accuracy);
+        // console.log('Attempts ' + attempts);
+        // console.log('matches: ' + matches);
+        // console.log('Accuracy ' + accuracy);
         cards_Selected = 2;
         second_card_clicked = $(clickedCard);
         $(clickedCard).off("click");
@@ -98,16 +99,28 @@ function card_clicked(clickedCard) {
         if(first_card_image === second_card_image   ) {
             match_counter ++;
             matches ++;
-            console.log('Matches ' + matches);
+            // console.log('Matches ' + matches);
             $(this).off("click");
-            console.log('MATCH!', match_counter );
+            // console.log('MATCH!', match_counter );
             first_card_clicked = null;
             second_card_clicked = null;
 
             if(match_counter === total_possible_matches) {
-                console.log('You have won.');
+                // console.log('You have won.');
                 display_stats();
+                setTimeout(function(){
                 $('h2.victory').text('You\'ve Won!!!');
+                $('div#win-result').addClass('win-shout-out');
+                var $button = $('<button>').text('reset game').addClass('reset');
+                $button.appendTo('div#win-result');
+                    $button.click(function(){
+                        games_played ++;
+                        reset_stats();
+                        $('.accuracy .value').text('Accuracy: ' + ' ');
+                        $('h2.victory').text('');
+                        $button.hide();
+                    })
+                }, 1000)
 
             } else {
                 display_stats();
@@ -128,7 +141,7 @@ function card_clicked(clickedCard) {
                 assignClickEvent();// resets the ability to click on cards
             }, 2000);
 
-            console.log('no MATCH!');
+            //console.log('no MATCH!');
             return;
         }
 
