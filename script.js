@@ -3,10 +3,10 @@ var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 9;
 var match_counter = 0;
-var cards_Selected = 0;//DECIDE ON KEEPING THIS OR NOT--FUTURE USE?
+var cards_Selected = 0;
 
 //STATS VARIABLES
-var matches = 0;//KEEP THIS OR match_counter... NO POINT IN BOTH -- TRIPLE CHECK
+var matches = 0;
 //Every time the application finds a match this variable is incremented by 1
 
 var attempts = 0;
@@ -54,7 +54,7 @@ function reset_stats() {
     first_card_clicked = null;
     second_card_clicked = null;
 
-    //REMOVE THE "YOU'VE WON STYLING/BACKGROUND"
+    //REMOVES THE "YOU'VE WON STYLING/BACKGROUND"
     $('div#win-result').removeClass('win-shout-out');
     //DISPLAY THE UPDATED STATISTICS
     display_stats();
@@ -107,7 +107,7 @@ function card_clicked(clickedCard) {
         if(first_card_image === second_card_image   ) {
             match_counter ++;
             matches ++;
-            $(this).off("click");//SEE IF THIS EVEN DOES ANYTHING WORTHWHILE -- THIS IS WINDOW, I THINK
+            $(this).off("click");
 
             //RESET CARD VARIABLES TO VALUES AT THE BEGINNING
             first_card_clicked = null;
@@ -145,7 +145,7 @@ function card_clicked(clickedCard) {
                 display_stats();
                 return;
             }
-            return;//WHY DID I PUT THIS HERE?
+            return;
         } else {
            //IF THE CARDS DIDN'T MATCH...
         $('.card').off("click");/*this makes it so the user can't click on other cards while mismatched cards are
@@ -165,9 +165,3 @@ function card_clicked(clickedCard) {
         }
     }
 };
-//FINAL NOTES TO SELF, IF RECODE THIS, USE THE .FRONT OR .BACK CLASSES FOR THE CLICK HANDLER INSTEAD OF .CARD
-//.CARD WAS USED BECAUSE OF STYLING ISSUES WITH THE IMAGE SIZES
-//USING THESE WILL MAKE FOR AN EASIER SOLUTION TO THE BUG NEEDING FIXING
-//BUG .. IF A PLAYER GETS A MIS-MATCH, THEY ARE ABLE TO CLICK ON DISPLAYED MATCHED CARD FACES AND GET MATCHES
-//ONLY HAPPENS AFTER GETTING A MIS-MATCH -- SO, ONLY SOMEONE TESTING IT OR SOMEONE CLUMSY OR HAS POOR VISION
-//THIS IS GOOD FOR NOW, PUSH IT LIVE.... FIX AFTER
