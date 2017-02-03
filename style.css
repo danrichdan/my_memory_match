@@ -4,7 +4,8 @@
 BASE STYLES
 *****************/
 
-body {
+body,
+h1 {
     margin: 0;
 }
 
@@ -14,15 +15,14 @@ HEADER
 
 header {
     background-color: rgb(171,164,87);
-    font-family: 'Baloo Bhai', cursive;
-    text-align: center;
-    width: 100%;
     padding: 25px 0 10px;
 }
-h1 {
-    margin: 0;
-    color: rgb(48,56,17);
+
+header,
+button {
+    font-family: 'Baloo Bhai', cursive;
 }
+
 
 
 /*************************
@@ -51,11 +51,16 @@ MAIN-CONTENT AREA
 
 #wrapper {
     max-width: 1300px;
-    margin: 0 auto;
     position: relative;
 }
+
+header,
 section {
     width: 100%;
+}
+
+#wrapper,
+section {
     margin: 0 auto;
 }
 
@@ -71,11 +76,12 @@ STATS AREA
     margin-top: 0;
     padding-top: 10px;
     padding-bottom: 20px;
-    text-align: center;
 }
 
 .stats-area,
-.stats-area button {
+.stats-area button,
+h1,
+#about-game-area {
     color: rgb(48,56,17);
 }
 
@@ -85,6 +91,13 @@ STATS AREA
 
 .stats-area h2:first-of-type {
     margin-top: 10px;
+}
+
+.win-shout-out,
+header,
+footer,
+.stats-area {
+    text-align: center;
 }
 
 .win-shout-out {
@@ -102,10 +115,8 @@ STATS AREA
     background-color: #000;
     opacity: 0.7;
     filter: alpha(opacity=70);
-    text-align: center;
     color: rgb(199,228,93);
     font-size: 1.5em;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .win-shout-out,
@@ -114,15 +125,20 @@ button {
 }
 
 .stats-area,
-footer {
+footer,
+.win-shout-out,
+#about-game-area {
     font-family: 'Open Sans', sans-serif;
+}
+
+.stats-area,
+footer {
     background-color: rgb(255, 244, 179);
 }
 
 button {
     padding: 10px;
     text-transform: uppercase;
-    font-family: 'Baloo Bhai', cursive;
     font-size: 1.2em;
     background-color: rgb(199,228,93);
     margin-top: 10px;
@@ -172,7 +188,6 @@ img {
 footer {
     padding: 25px;
     margin-top: 25px;
-    text-align: center;
 }
 
 
@@ -181,10 +196,8 @@ ABOUT PAGE
 *******************/
 
 #about-game-area {
-    font-family: 'Open Sans', sans-serif;
     width: 90%;
     margin: 50px auto;
-    color: rgb(48,56,17);
 }
 
 #about-game-area p {

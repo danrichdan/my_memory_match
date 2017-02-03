@@ -1,22 +1,28 @@
-//MAIN GAME'S VARIABLES
+//GAME'S MAIN VARIABLES
 var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 9;
 var match_counter = 0;
-var cards_Selected = 0;
-
+var cards_Selected = 0;//DECIDE ON KEEPING THIS OR NOT--FUTURE USE?
 
 //STATS VARIABLES
-var matches = 0;
-//Every time the application finds a match this variable should be incremented by 1
+var matches = 0;//KEEP THIS OR match_counter... NO POINT IN BOTH -- TRIPLE CHECK
+//Every time the application finds a match this variable is incremented by 1
 
 var attempts = 0;
-//Every time a user attempts a match (clicks the 2nd card) the attempts should be incremented by 1
+//Every time a user attempts a match (clicks the 2nd card) the attempts are incremented by 1
 
-var accuracy = 0; //Accuracy is defined as a percentage of matches / attempts
+var accuracy = 0;
+//Accuracy is a percentage of matches / attempts
 
-var games_played = 0; //When the page is loaded a new global variable should be defined called games_played. When the game is reset by clicking the reset button the games_played should be incremented by 1.
+var games_played = 0;
+//When the page is loaded a new global variable is defined called games_played.
+// When the game is reset by clicking the reset button the games_played is incremented by 1.
 
+
+/****************************
+  BEGINNING OF FUNCTIONS
+*****************************/
 
 function assignClickEvent() {
     $('.card').off('click').on('click', function () {
@@ -25,95 +31,108 @@ function assignClickEvent() {
 };
 
 function display_stats() {
-// Inserts the games_played value into the element that would be selected like this “.games-played .value”
+    //THIS FUNCTION DISPLAYS THE STATISTICS
+
+    // Inserts the games_played value into the element “.games-played .value”
     $('.games-played .value').text('Games played: ' + games_played) ;
 
-    // Insert attempts value into the element that would be selected using this selector “.attempts .value”
+    // Inserts attempts value into the element “.attempts .value”
     $('.attempts .value').text('Attempts: ' + attempts);
 
-// Formats accuracy to be a percentage number with the % sign
+    // Formats accuracy to be a percentage number with the % sign
     accuracy = ((matches / attempts).toFixed(2) * 100);
     $('.accuracy .value').text('Accuracy: ' + accuracy + '%');
-//Takes formatted accuracy and inserts the value of the variable into the element that has the selector of “.accuracy .value”
+   //Takes formatted accuracy and inserts the value of the variable into the element “.accuracy .value”
 };
 
 function reset_stats() {
+    //RESETS THE VARIABLES TO INITIAL STATES
     accuracy = 0;
     matches = 0;
     match_counter = 0;
     attempts = 0;
     first_card_clicked = null;
     second_card_clicked = null;
-    $('div#win-result').removeClass('win-shout-out');
-    display_stats();
-    $('.back').show();
-    assignClickEvent();
 
+    //REMOVE THE "YOU'VE WON STYLING/BACKGROUND"
+    $('div#win-result').removeClass('win-shout-out');
+    //DISPLAY THE UPDATED STATISTICS
+    display_stats();
+    //FLIP THE CARDS TO SHOW THEIR BACKS
+    $('.back').show();
+
+    assignClickEvent();
 };
 
     $(document).on('ready', function () {
         assignClickEvent();
-        // console.log('Accuracy ' + accuracy);
-        // console.log('Matches ' + matches);
-        // console.log('Attempts ' + attempts);
-        // console.log('Games played ' + games_played);
         display_stats();
+
+        //ACCURACY WILL DISPLAY AS NaN IF THIS IS NOT SET TO EMPTY
         $('.accuracy .value').text('Accuracy: ' + ' ');
+
+        //ADD CLICK HANDLER TO RESET BUTTON
         $('.reset').on('click', function() {
             games_played ++;
-
             reset_stats();
             $('.accuracy .value').text('Accuracy: ' + ' ');
             $('h2.victory').text('');
-            //Reset all cards to have the back face showing
         });
     });
 
 function card_clicked(clickedCard) {
-     //console.log(clickedCard);
-     var frontOfCardClicked= $(clickedCard).find('.front');
-    //console.log(frontCard);
-     var $backFace = $(clickedCard).find('.back');
-    //console.log(clickedCard);
-
+    //HIDE THE CARD BACK
+      var $backFace = $(clickedCard).find('.back');
       $backFace.hide();
 
+    //SEE IF THE CARD CLICKED IS THE FIRST CARD
     if (first_card_clicked === null) {
         cards_Selected =1;
-        first_card_clicked = $(clickedCard).off("click"); /*I added the off click so the user could not click on a the same card and have it be considered a match */
+        first_card_clicked = $(clickedCard);
+        $(clickedCard).off("click");
+        //I added the off click so the user could not click on a the same card and have it be considered a match
         second_card_clicked = null;
-        //console.log('This is the first card', first_card_clicked);
     } else {
+    //IF IT'S THE SECOND CARD CLICKED....
         attempts ++;
-        // console.log('Attempts ' + attempts);
-        // console.log('matches: ' + matches);
-        // console.log('Accuracy ' + accuracy);
         cards_Selected = 2;
         second_card_clicked = $(clickedCard);
         $(clickedCard).off("click");
-          var first_card_image = $(first_card_clicked).find('.front img').attr('src');
-        //console.log('This is the first image', first_card_image);
-          var second_card_image = $(second_card_clicked).find('.front img').attr('src');
-        //console.log('This is the second image', second_card_image);
 
+        //GET THE VALUES OF THE SRC ATTRIBUTE, THESE WILL BE USED TO MATCH
+          var first_card_image = $(first_card_clicked).find('.front img').attr('src');
+          var second_card_image = $(second_card_clicked).find('.front img').attr('src');
+
+        //SEE IF THE IMAGES MATCH
         if(first_card_image === second_card_image   ) {
             match_counter ++;
             matches ++;
-            // console.log('Matches ' + matches);
-            $(this).off("click");
-            // console.log('MATCH!', match_counter );
+            $(this).off("click");//SEE IF THIS EVEN DOES ANYTHING WORTHWHILE -- THIS IS WINDOW, I THINK
+
+            //RESET CARD VARIABLES TO VALUES AT THE BEGINNING
             first_card_clicked = null;
             second_card_clicked = null;
 
+            //SEE IF THE PLAYER HAS WON THE GAME YET
             if(match_counter === total_possible_matches) {
-                // console.log('You have won.');
                 display_stats();
+                //If the player clicks on the reset button in the stats area when the new button shows,
+                //a defect occurs with the display of the new one.
+                //disabling it was a quick fix
+                $('.stats-area button').attr('disabled',true);
+
+                //WAIT A SEC AND THEN... BLAMMO, YOU WON
                 setTimeout(function(){
-                $('h2.victory').text('You\'ve Won!!!');
-                $('div#win-result').addClass('win-shout-out');
-                var $button = $('<button>').text('reset game').addClass('reset');
-                $button.appendTo('div#win-result');
+                    $('h2.victory').text('You\'ve Won!!!');
+                    //ADD STYLING FOR WIN ANNOUNCEMENT SECTION
+                    $('div#win-result').addClass('win-shout-out');
+                    //ADD BUTTON TO WIN SECTION
+                    var $button = $('<button>').text('reset game').addClass('reset');
+                    $button.appendTo('div#win-result');
+
+                    //ADD CLICK HANDLER TO THE BUTTON IN THE WIN SECTION
                     $button.click(function(){
+                        $('.stats-area button').attr('disabled',false);
                         games_played ++;
                         reset_stats();
                         $('.accuracy .value').text('Accuracy: ' + ' ');
@@ -121,30 +140,34 @@ function card_clicked(clickedCard) {
                         $button.hide();
                     })
                 }, 1000)
-
             } else {
+                //IF THEY DIDN'T WIN...
                 display_stats();
                 return;
             }
-
-            return;
+            return;//WHY DID I PUT THIS HERE?
         } else {
-
+           //IF THE CARDS DIDN'T MATCH...
         $('.card').off("click");/*this makes it so the user can't click on other cards while mismatched cards are
              showing*/
             setTimeout(function(){
+                //This is so they don't flip over right away without the player seeing what they chose
                 display_stats();
                 $(first_card_clicked).find('.back').show();
                 $(second_card_clicked).find('.back').show();
+                //set the card variables back to the value at the beginning
                 first_card_clicked = null;
                 second_card_clicked = null;
-                assignClickEvent();// resets the ability to click on cards
+                // resets the ability to click on cards
+                assignClickEvent();
             }, 2000);
-
-            //console.log('no MATCH!');
             return;
         }
-
     }
-
 };
+//FINAL NOTES TO SELF, IF RECODE THIS, USE THE .FRONT OR .BACK CLASSES FOR THE CLICK HANDLER INSTEAD OF .CARD
+//.CARD WAS USED BECAUSE OF STYLING ISSUES WITH THE IMAGE SIZES
+//USING THESE WILL MAKE FOR AN EASIER SOLUTION TO THE BUG NEEDING FIXING
+//BUG .. IF A PLAYER GETS A MIS-MATCH, THEY ARE ABLE TO CLICK ON DISPLAYED MATCHED CARD FACES AND GET MATCHES
+//ONLY HAPPENS AFTER GETTING A MIS-MATCH -- SO, ONLY SOMEONE TESTING IT OR SOMEONE CLUMSY OR HAS POOR VISION
+//THIS IS GOOD FOR NOW, PUSH IT LIVE.... FIX AFTER
