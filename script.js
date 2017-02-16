@@ -24,6 +24,26 @@ var games_played = 0;
   BEGINNING OF FUNCTIONS
 *****************************/
 
+function randomizeCards() {
+    //store all of the src atrributes for the .front images
+    var cardFronts = ["final_images/siberian-husky.jpg","final_images/amer-eskimo.jpg","final_images/akita.jpg","final_images/australian_cattle_dog.jpg","final_images/canaan-dog.jpg","final_images/doberman.jpg","final_images/mutt.jpg","final_images/toughguy.jpg","final_images/tongue.jpg"];
+    //double the images by concatenting them
+    var preShuffleFronts = cardFronts.concat(cardFronts);
+    //create an empty array to store the new shuffled images
+    var shuffledFronts = [];
+    while (preShuffleFronts.length > 0) {
+        var randomIndex = Math.floor(Math.random() * preShuffleFronts.length);
+        var randomImageSrc = preShuffleFronts.splice(randomIndex, 1)[0];
+        shuffledFronts.push(randomImageSrc);
+    }
+// Insert image sources into DOM
+    var $imageFronts = $('.front img');
+    $imageFronts.each(function(){
+        var src = shuffledFronts.pop();
+        $(this).attr("src", src);
+    });
+};
+
 function assignClickEvent() {
     $('.card').off('click').on('click', function () {
         card_clicked(this);
@@ -60,19 +80,19 @@ function reset_stats() {
     display_stats();
     //FLIP THE CARDS TO SHOW THEIR BACKS
     $('.back').show();
-
     assignClickEvent();
+    randomizeCards();
 };
 
     $(document).on('ready', function () {
+        randomizeCards();
         assignClickEvent();
         display_stats();
-
         //ACCURACY WILL DISPLAY AS NaN IF THIS IS NOT SET TO EMPTY
         $('.accuracy .value').text('Accuracy: ' + ' ');
 
         //ADD CLICK HANDLER TO RESET BUTTON
-        $('.reset').on('click', function() {
+        $('.reset').on('click',function() {
             games_played ++;
             reset_stats();
             $('.accuracy .value').text('Accuracy: ' + ' ');
@@ -165,9 +185,3 @@ function card_clicked(clickedCard) {
         }
     }
 };
-//FINAL NOTES TO SELF, IF RECODE THIS, USE THE .FRONT OR .BACK CLASSES FOR THE CLICK HANDLER INSTEAD OF .CARD
-//.CARD WAS USED BECAUSE OF STYLING ISSUES WITH THE IMAGE SIZES
-//USING THESE WILL MAKE FOR AN EASIER SOLUTION TO THE BUG NEEDING FIXING
-//BUG .. IF A PLAYER GETS A MIS-MATCH, THEY ARE ABLE TO CLICK ON DISPLAYED MATCHED CARD FACES AND GET MATCHES
-//ONLY HAPPENS AFTER GETTING A MIS-MATCH -- SO, ONLY SOMEONE TESTING IT OR SOMEONE CLUMSY OR HAS POOR VISION
-//THIS IS GOOD FOR NOW, PUSH IT LIVE.... FIX AFTER
