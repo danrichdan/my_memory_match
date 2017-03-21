@@ -89,13 +89,13 @@ function reset_stats() {
         assignClickEvent();
         display_stats();
         //ACCURACY WILL DISPLAY AS NaN IF THIS IS NOT SET TO EMPTY
-        $('.accuracy .value').text('Accuracy: ' + ' ');
+        $('.accuracy .value').text('Accuracy: ' + ' N/A ');
 
         //ADD CLICK HANDLER TO RESET BUTTON
         $('.reset').on('click',function() {
             games_played ++;
             reset_stats();
-            $('.accuracy .value').text('Accuracy: ' + ' ');
+            $('.accuracy .value').text('Accuracy: ' + ' N/A ');
             $('h2.victory').text('');
         });
     });
@@ -155,7 +155,7 @@ function card_clicked(clickedCard) {
                         $('.stats-area button').attr('disabled',false);
                         games_played ++;
                         reset_stats();
-                        $('.accuracy .value').text('Accuracy: ' + ' ');
+                        $('.accuracy .value').text('Accuracy: ' + ' N/A ');
                         $('h2.victory').text('');
                         $button.hide();
                     })
