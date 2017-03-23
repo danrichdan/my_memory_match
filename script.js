@@ -5,6 +5,10 @@ var total_possible_matches = 9;
 var match_counter = 0;
 var cards_Selected = 0;
 
+//USED FOR TRACKING WHICH CARDS HAVE BEEN MATCHED
+var card_to_track_1 = null;
+var card_to_track_2 =null;
+var matched_card = [];
 //STATS VARIABLES
 var matches = 0;
 //Every time the application finds a match this variable is incremented by 1
@@ -47,6 +51,7 @@ function randomizeCards() {
 function assignClickEvent() {
     $('.card').off('click').on('click', function () {
         card_clicked(this);
+
     });
 };
 
@@ -61,7 +66,9 @@ function display_stats() {
 
     // Formats accuracy to be a percentage number with the % sign
     accuracy = ((matches / attempts).toFixed(2) * 100);
+    accuracy = Math.floor(accuracy);
     $('.accuracy .value').text('Accuracy: ' + accuracy + '%');
+
    //Takes formatted accuracy and inserts the value of the variable into the element “.accuracy .value”
 };
 
@@ -73,12 +80,15 @@ function reset_stats() {
     attempts = 0;
     first_card_clicked = null;
     second_card_clicked = null;
+    matched_card = [];
+    card_to_track_1 = null;
+    card_to_track_2 = null;
 
     //REMOVES THE "YOU'VE WON STYLING/BACKGROUND"
     $('div#win-result').removeClass('win-shout-out');
-    //DISPLAY THE UPDATED STATISTICS
+    //DISPLAYS THE UPDATED STATISTICS
     display_stats();
-    //FLIP THE CARDS TO SHOW THEIR BACKS
+    //FLIPS THE CARDS TO SHOW THEIR BACKS
     $('.back').show();
     assignClickEvent();
     randomizeCards();
@@ -89,13 +99,13 @@ function reset_stats() {
         assignClickEvent();
         display_stats();
         //ACCURACY WILL DISPLAY AS NaN IF THIS IS NOT SET TO EMPTY
-        $('.accuracy .value').text('Accuracy: ' + ' ');
+        $('.accuracy .value').text('Accuracy: ' + ' N/A ');
 
         //ADD CLICK HANDLER TO RESET BUTTON
         $('.reset').on('click',function() {
             games_played ++;
             reset_stats();
-            $('.accuracy .value').text('Accuracy: ' + ' ');
+            $('.accuracy .value').text('Accuracy: ' + ' N/A ');
             $('h2.victory').text('');
         });
     });
@@ -109,17 +119,20 @@ function card_clicked(clickedCard) {
     if (first_card_clicked === null) {
         cards_Selected =1;
         first_card_clicked = $(clickedCard);
+        console.log('THIS IS THE VALUE OF first_card_clicked', first_card_clicked );
         $(clickedCard).off("click");
         //I added the off click so the user could not click on a the same card and have it be considered a match
         second_card_clicked = null;
+        card_to_track_1 = $(clickedCard);
     } else {
     //IF IT'S THE SECOND CARD CLICKED....
         attempts ++;
         cards_Selected = 2;
         second_card_clicked = $(clickedCard);
         $(clickedCard).off("click");
+        card_to_track_2 = $(clickedCard);
 
-        //GET THE VALUES OF THE SRC ATTRIBUTE, THESE WILL BE USED TO MATCH
+        //GETS THE VALUES OF THE SRC ATTRIBUTE, THESE WILL BE USED TO MATCH
           var first_card_image = $(first_card_clicked).find('.front img').attr('src');
           var second_card_image = $(second_card_clicked).find('.front img').attr('src');
 
@@ -127,9 +140,12 @@ function card_clicked(clickedCard) {
         if(first_card_image === second_card_image   ) {
             match_counter ++;
             matches ++;
-            $(this).off("click");
 
-            //RESET CARD VARIABLES TO VALUES AT THE BEGINNING
+            //TRACKING AND STORING THE MATCHED CARDS
+            matched_card.push(card_to_track_1);
+            matched_card.push(card_to_track_2);
+
+            //RESETS CARD VARIABLES TO VALUES AT THE BEGINNING
             first_card_clicked = null;
             second_card_clicked = null;
 
@@ -144,18 +160,18 @@ function card_clicked(clickedCard) {
                 //WAIT A SEC AND THEN... BLAMMO, YOU WON
                 setTimeout(function(){
                     $('h2.victory').text('You\'ve Won!!!');
-                    //ADD STYLING FOR WIN ANNOUNCEMENT SECTION
+                    //ADDS STYLING FOR WIN ANNOUNCEMENT SECTION
                     $('div#win-result').addClass('win-shout-out');
-                    //ADD BUTTON TO WIN SECTION
+                    //ADDS BUTTON TO WIN SECTION
                     var $button = $('<button>').text('reset game').addClass('reset');
                     $button.appendTo('div#win-result');
 
-                    //ADD CLICK HANDLER TO THE BUTTON IN THE WIN SECTION
+                    //ADDS CLICK HANDLER TO THE BUTTON IN THE WIN SECTION
                     $button.click(function(){
                         $('.stats-area button').attr('disabled',false);
                         games_played ++;
                         reset_stats();
-                        $('.accuracy .value').text('Accuracy: ' + ' ');
+                        $('.accuracy .value').text('Accuracy: ' + ' N/A ');
                         $('h2.victory').text('');
                         $button.hide();
                     })
@@ -180,7 +196,11 @@ function card_clicked(clickedCard) {
                 second_card_clicked = null;
                 // resets the ability to click on cards
                 assignClickEvent();
-            }, 2000);
+                //TAKES THE CLICK HANDLER OFF OF THE MATCHED CARDS
+                for(var i = 0; i < matched_card.length; i++) {
+                    matched_card[i].off('click');
+                }
+            }, 1000);
             return;
         }
     }
