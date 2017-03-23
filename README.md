@@ -10,10 +10,10 @@ accuracy of their choices.
 ## Current Features
 
 > Tracks player statistics
-> Win notification
-> Card matching
-> Dog images
-> Card back images
+Win notification
+Card matching
+Dog images
+Card back images
 
 ## Motivation
 
