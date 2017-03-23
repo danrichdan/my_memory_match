@@ -22,5 +22,3 @@ accuracy of their choices.
 ## Live Demo
 
 > https://danrichdan.github.io/my_memory_match/
-
-
